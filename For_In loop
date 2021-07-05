@@ -1,0 +1,8 @@
+## for _ in range():
+## concept of swapping var
+def num_ways_(n):
+    a, b = 1, 2
+    for _ in range(n-1):
+        a, b = b, a+b
+    return a
+print(num_ways_(5))
