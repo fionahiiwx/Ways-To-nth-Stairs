@@ -1,0 +1,13 @@
+## Instead of using recursion, a loop was used.
+## A list of None with length of (n+1) to include the nth term of step of 0.
+## The list of None would be used to store the already computed total number of steps needed to reach that nth term
+## if the n does not equal to 1 or 0.
+## Otherwise, it would have given the answer as 1 for only able to take one step for that nth term of steps.
+def num_ways_bu(n):
+    memo = [None] * (n+1)
+    memo[0] = 1
+    memo[1] = 1
+    for i in range(2, n+1):
+        memo[i] = memo[i-1] + memo[i-2]
+    return memo[n]
+print(num_ways_bu(5))
