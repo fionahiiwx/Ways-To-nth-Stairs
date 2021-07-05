@@ -1,0 +1,19 @@
+## The memo list containing None of (n+1) length
+## which would be used to store the already computed total number of steps needed to reach that nth term through recursion.
+## The length of memo is n+1 to include the nth step of 0.
+##
+def num_ways_memo(n, memo):
+    if memo[n] != None:
+        return memo[n]
+    elif n <= 1:
+        result = 1
+    else:
+        result = num_ways_memo(n-1, memo) + num_ways_memo(n-2, memo)
+    memo[n] = result
+    return result
+
+def num_ways_memo2(n):
+    memo = [None] * (n+1)
+    return num_ways_memo(n, memo)
+
+print(num_ways_memo2(5))
